@@ -2,59 +2,72 @@ const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
-// لود کردن کارها از localStorage در شروع
 window.onload = () => {
-    let saved = JSON.parse(localStorage.getItem("tasks")) || [];
-    saved.forEach(task => addTaskToUI(task.text, task.completed));
+  let saved = JSON.parse(localStorage.getItem("tasks")) || [];
+  saved.forEach((task) => addTaskToUI(task.text, task.completed));
 };
 
-// افزودن کار
 addBtn.addEventListener("click", () => {
-    const text = taskInput.value.trim();
-    if (text === "") return;
+  const text = taskInput.value.trim();
+  if (text === "") return;
 
-    addTaskToUI(text, false);
-    saveTasks();
-    taskInput.value = "";
+  addTaskToUI(text, false);
+  saveTasks();
+  taskInput.value = "";
 });
 
-// ساختن یک آیتم در UI
 function addTaskToUI(text, completed) {
-    const li = document.createElement("li");
-    li.className = "task";
-    if (completed) li.classList.add("completed");
+  const li = document.createElement("li");
+  li.className = "task";
+  if (completed) li.classList.add("completed");
 
-    li.innerHTML = 
-        <span class="task-text">${text}</span>
-        <div>
-            <button class="delete-btn">حذف</button>
-        </div>
-    ;
+  const span = document.createElement("span");
+  span.className = "task-text";
+  span.textContent = text;
 
-    // کلیک روی متن → تیک خوردن
-    li.querySelector(".task-text").addEventListener("click", () => {
-        li.classList.toggle("completed");
-        saveTasks();
-    });
+  const div = document.createElement("div");
 
-    // حذف کردن
-    li.querySelector(".delete-btn").addEventListener("click", () => {
-        li.remove();
-        saveTasks();
-    });
+  const doneBtn = document.createElement("button");
+  doneBtn.className = "done-btn";
+  doneBtn.textContent = "✓";
 
-    taskList.appendChild(li);
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.textContent = "×";
+
+  div.appendChild(doneBtn);
+  div.appendChild(deleteBtn);
+  li.appendChild(span);
+  li.appendChild(div);
+
+  span.addEventListener("click", () => {
+    li.classList.toggle("completed");
+    saveTasks();
+  });
+
+  doneBtn.addEventListener("click", () => {
+    li.classList.toggle("completed");
+    saveTasks();
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    if (confirm("Do you want to delete this task?")) {
+      li.remove();
+      saveTasks();
+    }
+  });
+
+  taskList.appendChild(li);
 }
 
-// ذخیره کارها در localStorage
 function saveTasks() {
-    const tasks = [];
-    document.querySelectorAll(".task").forEach(li => {
-        tasks.push({
-            text: li.querySelector(".task-text").innerText,
-            completed: li.classList.contains("completed")
-        });
+  const tasks = [];
+  document.querySelectorAll(".task").forEach((li) => {
+    tasks.push({
+      text: li.querySelector(".task-text").innerText,
+      completed: li.classList.contains("completed"),
     });
+  });
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }

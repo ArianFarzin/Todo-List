@@ -35,6 +35,7 @@ Type your task in the input field
 Click the Add button or press Enter to add the task
 Click on the task text or the ✓ button to mark it as completed
 Click the × button to delete the task permanently
+```
 📂 Project Structure
 todo-list/
 │
@@ -43,14 +44,14 @@ todo-list/
 ├── script.js       # JavaScript functionality
 ├── README.md       # Project documentation
 ├── screenshot.png  # Project Screenshot
-
+```
 🎯 Future Improvements
-[ ] Add task categories/tags
-[ ] Add due dates for tasks
-[ ] Filter tasks (All, Active, Completed)
-[ ] Edit existing tasks
-[ ] Dark mode toggle
-[ ] Export/Import tasks
+- 🔄Add task categories/tags
+- 🔄Add due dates for tasks
+- 🔄Filter tasks (All, Active, Completed)
+- 🔄Edit existing tasks
+- 🔄Dark mode toggle
+- 🔄Export/Import tasks
 
 👨‍💻 Developer
 - Arian Farzin

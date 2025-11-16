@@ -1,6 +1,6 @@
 # 📝 Todo List
 
-A simple and clean todo list web application built with vanilla JavaScript, HTML, and CSS.
+A simple and clean todo list bulid with JavaScript, HTML, and CSS.
 
 ## ✨ Features
 
@@ -9,21 +9,16 @@ A simple and clean todo list web application built with vanilla JavaScript, HTML
 - ✅ Delete tasks permanently
 - ✅ Data persistence using localStorage
 - ✅ Responsive and user-friendly design
-- ✅ Keyboard support (Enter key to add tasks)
-
-## 🚀 Demo
-
-[Live Demo](https://arianfarzin.github.io/todo-list/) *(if you deploy it)*
 
 ## 📸 Screenshot
 
-![Todo List Screenshot](screenshot.png) *(optional - add a screenshot)*
+![Todo List Screenshot](screenshot.png)
 
 ## 🛠️ Technologies Used
 
 - HTML5 - Structure
 - CSS3 - Styling and layout
-- JavaScript (ES6) - Functionality and logic
+- JavaScript - Functionality and logic
 - localStorage API - Data persistence
 
 ## 📦 Installation
@@ -34,14 +29,7 @@ git clone https://github.com/ArianFarzin/todo-list.git
 Navigate to the project directory:
 cd todo-list
 Open index.html in your browser:
-# On Windows
-start index.html
 
-# On Mac
-open index.html
-
-# On Linux
-xdg-open index.html
 💡 Usage
 Type your task in the input field
 Click the Add button or press Enter to add the task
@@ -53,7 +41,9 @@ todo-list/
 ├── index.html      # Main HTML file
 ├── style.css       # Styles and layout
 ├── script.js       # JavaScript functionality
-└── README.md       # Project documentation
+├── README.md       # Project documentation
+├── screenshot.png  # Project Screenshot
+
 🎯 Future Improvements
 [ ] Add task categories/tags
 [ ] Add due dates for tasks
@@ -61,5 +51,6 @@ todo-list/
 [ ] Edit existing tasks
 [ ] Dark mode toggle
 [ ] Export/Import tasks
+
 👨‍💻 Developer
-Arian Farzin
+- Arian Farzin
